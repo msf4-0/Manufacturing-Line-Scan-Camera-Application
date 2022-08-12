@@ -1,0 +1,10 @@
+python 3.9.12
+time
+streamlit v1.1.1
+cv2 4.5.2.54
+numpy 1.22.4
+pypylon 1.8.0
+paho 1.6.1
+PIL 8.3.2
+
+####### Model training was done using IVIS which can be found in the following link (https://github.com/msf4-0/Integrated-Vision-Inspection-System-IVIS) #######

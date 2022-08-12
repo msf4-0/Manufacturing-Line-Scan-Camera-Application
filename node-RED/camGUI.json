@@ -1,0 +1,221 @@
+[
+    {
+        "id": "9b0c4947e1f8d1ea",
+        "type": "tab",
+        "label": "MQTT Time taken",
+        "disabled": true,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "4857a97a5b307e3b",
+        "type": "mqtt in",
+        "z": "9b0c4947e1f8d1ea",
+        "name": "",
+        "topic": "imgTest",
+        "qos": "2",
+        "datatype": "buffer",
+        "broker": "c0694f7a68065c3f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 90,
+        "y": 140,
+        "wires": [
+            [
+                "ff511335c08adc72",
+                "6978c07314454c09",
+                "19658595ee0e9ab8"
+            ]
+        ]
+    },
+    {
+        "id": "ff511335c08adc72",
+        "type": "function",
+        "z": "9b0c4947e1f8d1ea",
+        "name": "",
+        "func": "timeH = new Date().getHours();\ntimeM = new Date().getMinutes();\ntimeS = new Date().getSeconds();\ntimeMs = new Date().getMilliseconds();\ncurrentTime = (timeH*60*60)+(timeM*60)+(timeS)+(timeMs/1000)\n\nstartTime = global.get('start');\n\ntimeElapsed = currentTime - startTime;\n\nmsg.payload = \"Time elapsed: \" + (timeElapsed*1000) + \" ms\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 140,
+        "wires": [
+            [
+                "93dc5fde7db7708b"
+            ]
+        ]
+    },
+    {
+        "id": "93dc5fde7db7708b",
+        "type": "debug",
+        "z": "9b0c4947e1f8d1ea",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "6978c07314454c09",
+        "type": "image",
+        "z": "9b0c4947e1f8d1ea",
+        "name": "",
+        "width": 160,
+        "data": "payload",
+        "dataType": "msg",
+        "thumbnail": false,
+        "active": false,
+        "pass": false,
+        "outputs": 0,
+        "x": 620,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "19658595ee0e9ab8",
+        "type": "debug",
+        "z": "9b0c4947e1f8d1ea",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "651da2d214b7cda6",
+        "type": "aedes broker",
+        "z": "9b0c4947e1f8d1ea",
+        "name": "",
+        "mqtt_port": 1883,
+        "mqtt_ws_bind": "port",
+        "mqtt_ws_port": null,
+        "mqtt_ws_path": "",
+        "cert": "",
+        "key": "",
+        "certname": "",
+        "keyname": "",
+        "dburl": "",
+        "usetls": false,
+        "x": 130,
+        "y": 300,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "c0f97b7636ad52fd",
+        "type": "mqtt in",
+        "z": "9b0c4947e1f8d1ea",
+        "name": "",
+        "topic": "timeTest",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "c0694f7a68065c3f",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 100,
+        "y": 40,
+        "wires": [
+            [
+                "291ecb1d9149c991",
+                "c86ceca1592ec739"
+            ]
+        ]
+    },
+    {
+        "id": "c01bde5f1a4caee6",
+        "type": "debug",
+        "z": "9b0c4947e1f8d1ea",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "291ecb1d9149c991",
+        "type": "function",
+        "z": "9b0c4947e1f8d1ea",
+        "name": "",
+        "func": "global.set('start', msg.payload);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 40,
+        "wires": [
+            [
+                "c01bde5f1a4caee6"
+            ]
+        ]
+    },
+    {
+        "id": "c86ceca1592ec739",
+        "type": "debug",
+        "z": "9b0c4947e1f8d1ea",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 290,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "c0694f7a68065c3f",
+        "type": "mqtt-broker",
+        "name": "Latency Test",
+        "broker": "192.168.0.129",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    }
+]

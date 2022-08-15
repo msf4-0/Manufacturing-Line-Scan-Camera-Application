@@ -1,7 +1,7 @@
 # Manufacturing-Line-Scan-Camera-Application
 <!-- omit in toc -->
 <a href="https://github.com/msf4-0/Manufacturing-Line-Scan-Camera-Application/blob/master/LICENSE">
-    <img alt="GitHub" src="https://img.shields.io/github/license/msf4-0/Manufacturing-Line-Scan-Camera-Application">
+    <img alt="GitHub" src="https://img.shields.io/github/license/msf4-0/Manufacturing-Line-Scan-Camera-Applicatio">
 <a href="https://github.com/msf4-0/Manufacturing-Line-Scan-Camera-Application/releases">
     <img alt="Releases" src="https://img.shields.io/github/release/msf4-0/Integrated-Vision-Inspection-System?color=success" />
 </a>

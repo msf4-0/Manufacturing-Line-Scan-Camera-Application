@@ -15,4 +15,5 @@
     <img alt="GitHub pull requests" src="https://img.shields.io/github/issues-pr/msf4-0/Manufacturing-Line-Scan-Camera-Application?color=blue" />
 </a>
 <br><br>
-The ***Manufacturing-Line-Scan-Camera-Application*** is one of the implementation of Integrated-Vision-Inspection-System (IVIS) in a manufacturing scenario using a Basler line scan camera.
+
+The ***Manufacturing-Line-Scan-Camera-Application*** is one of the implementation of Integrated-Vision-Inspection-System (IVIS) in a manufacturing scenario using a Basler line scan camera. 

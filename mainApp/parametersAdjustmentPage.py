@@ -11,7 +11,7 @@ def parametersAdjustment():
     # Update the parameters when the button is pressed
     with st.form(key="form1"):
         # Create sliders for the parameters
-        exposureTime = st.slider("Exposure Time (miceroseccond):", min_value=20, max_value=10000, value=int(st.session_state.ET), step=1)
+        exposureTime = st.slider("Exposure Time (microsecond):", min_value=20, max_value=10000, value=int(st.session_state.ET), step=1)
         workingDistance = st.slider("Working Distance (mm):", min_value=181.4, max_value=1025.0, value=float(st.session_state.WD), step=0.1)
         blackLevel = st.slider("Black Level:", min_value=-2048, max_value=2047, value=int(st.session_state.BL), step=1)
         gain = st.slider("Gain:", min_value=256, max_value=2047, value=int(st.session_state.Gain), step=1)

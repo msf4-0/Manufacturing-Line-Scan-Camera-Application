@@ -3,7 +3,7 @@
 <a href="https://github.com/msf4-0/Manufacturing-Line-Scan-Camera-Application/blob/master/LICENSE">
     <img alt="GitHub" src="https://img.shields.io/github/license/msf4-0/Manufacturing-Line-Scan-Camera-Application">
 <a href="https://github.com/msf4-0/Manufacturing-Line-Scan-Camera-Application/releases">
-    <img alt="Releases" src="https://img.shields.io/github/release/msf4-0/Integrated-Vision-Inspection-System?color=success" />
+    <img alt="Releases" src="https://img.shields.io/github/downloads/msf4-0/Manufacturing-Line-Scan-Camera-Application/total" />
 </a>
 <a href="https://github.com/msf4-0/Manufacturing-Line-Scan-Camera-Application/releases">
     <img alt="Downloads" src="https://img.shields.io/github/downloads/msf4-0/Manufacturing-Line-Scan-Camera-Application/total.svg?color=success" />

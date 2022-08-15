@@ -16,4 +16,34 @@
 </a>
 <br><br>
 
-The ***Manufacturing-Line-Scan-Camera-Application*** is one of the implementation of Integrated-Vision-Inspection-System (IVIS) in a manufacturing scenario using a Basler line scan camera. 
+The ***Manufacturing-Line-Scan-Camera-Application*** is one of the implementation of Integrated-Vision-Inspection-System (IVIS) in a manufacturing scenario using a Basler line scan camera. As the proof of concept, this project has been tested (acting as an automated quality control) on a RFID-based Production Line.
+
+## Basic User Guide :open_book:
+***NOTE: For more detailed user guide, counsult the wiki.***
+#### Parameters calculation
+1. In the Calculator page, user will be able to calculate one of the required variable (object speed, working distance, or exposure time) accordingly.
+2. Once every other information has been filled, the result of the calculation will be shown above the "Apply the parameters above" button.
+3. To use the calculated parameters, press on the "Apply the parameters above" button.
+
+### Paramaters Adjustment
+1. If the user did not make any adjusment to the parameters, the default value will be selected
+
+### Deployment 
+1. To deploy the camera, go to the deployment page.
+2. Click the "Connect" button.
+3. Check the "Deploy" checkbox.
+After this step, the image acquisition should run continuously until the "Deploy" checkbox is unchecked.
+
+## Node-RED:link:
+This repo also features some integration with Node-RED. The sample flow of the MQTT communication between camGUI with IVIS & RFID Production Line can be found [here](https://github.com/msf4-0/Manufacturing-Line-Scan-Camera-Application/tree/main/node-RED).
+
+## Citation
+```tex
+@misc{Manufacturing Line Scan Camera Application,
+  title={{Manufacturing Line Scan Camera Application}},
+  url={https://github.com/msf4-0/Manufacturing-Line-Scan-Camera-Application},
+  author={
+    Nathanael Virlian Wijaya},
+  year={2022},
+}
+```

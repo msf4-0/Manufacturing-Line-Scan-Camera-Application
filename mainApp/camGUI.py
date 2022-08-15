@@ -8,7 +8,7 @@ from parametersAdjustmentPage import parametersAdjustment
 from deploymentPage import deployment
 
 # Create the page title, icon, and layout 
-st.set_page_config(page_title = "MLSCA", page_icon = 'mainApp/logos/shrdc-logo_no-bg.png', layout = "wide")
+st.set_page_config(page_title = "MLSCA", page_icon = 'resources/logos/shrdc-logo_no-bg.png', layout = "wide")
 
 # Global Variable (saved in the session state)
 # Camera parameters
@@ -77,7 +77,7 @@ if 'count' not in st.session_state:
     st.session_state.count = 0
 
 # Create the sidebar for navigation 
-logo = "mainApp/logos/MSF-logo.gif"
+logo = "resources/logos/MSF-logo.gif"
 st.sidebar.image(logo)
 st.sidebar.title("Navigation")  
 navOption = st.sidebar.radio("Pages:", options=['Home', 'Calculator', 'Parameters Adjustment', 'Deployment'])

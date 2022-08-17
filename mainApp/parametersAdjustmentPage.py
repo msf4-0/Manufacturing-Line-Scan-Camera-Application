@@ -42,7 +42,7 @@ def parametersAdjustment():
         col1, col2 = st.columns(2)
 
         # Read the sample image
-        sampleImage = "originalSample.png"
+        sampleImage = "resources/images/originalSample.png"
         originalImage = cv.imread(sampleImage,0)
         
         # Input number to adjust the threshold value

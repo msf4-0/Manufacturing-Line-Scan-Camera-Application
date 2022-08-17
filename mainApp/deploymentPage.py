@@ -79,7 +79,7 @@ def deployment():
             camera.GainRaw.SetValue(st.session_state.Gain)
             camera.CenterX.SetValue(st.session_state.Cx)
             camera.Width.SetValue(st.session_state.Width)
-            camera.Height.SetValue(st.session_state.Height)
+            camera.Height.SetValue(100)
             camera.MaxNumBuffer = 20
             camera.Close()
         except:
@@ -131,7 +131,7 @@ def deployment():
                             if grab.GrabSucceeded():
                                 i += 1
                                 img.append(grab.GetArray())
-                            if i == 3:
+                            if i == (st.session_state.Height / 100):
                                 camera.StopGrabbing()
                                 break
                         
@@ -143,11 +143,10 @@ def deployment():
                             for imgIndex in range(len(img) - 1):
                                 combinedImg = np.concatenate((combinedImg, img[imgIndex+1]), axis=0)
                             st.image(combinedImg)
-                            st.write(f'Size of image: {combinedImg.shape}')
+                            st.write(f'Size of the image: {combinedImg.shape}')
                         
                         # Resize the combined image
                         combinedImg = cv.resize(combinedImg, (512,512))
-                        st.write(f'Size of image after resizing: {combinedImg.shape}')
                         
                         # If user chose to use image thresholding, apply the method
                         if st.session_state.imgThresholding == 'Yes':
@@ -156,7 +155,7 @@ def deployment():
 
                         # Preview the image after the thresholding
                         st.image(combinedImg)
-                        st.write(f'Size of image: {combinedImg.shape}')
+                        st.write(f'Size of the image: {combinedImg.shape}')
                         
                         # Saving the image in PNG format
                         data = im.fromarray(combinedImg)

@@ -31,10 +31,10 @@ if 'Cx' not in st.session_state:
     st.session_state.Cx = True
 
 if 'Width' not in st.session_state:
-    st.session_state.Width = 7743
+    st.session_state.Width = 8000
 
 if 'Height' not in st.session_state:
-    st.session_state.Height = 3000
+    st.session_state.Height = 8000
 
 # Camera trigger delay
 if 'triggerDelay' not in st.session_state:

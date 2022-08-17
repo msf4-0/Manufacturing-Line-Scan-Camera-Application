@@ -16,7 +16,7 @@ def parametersAdjustment():
         blackLevel = st.slider("Black Level:", min_value=-2048, max_value=2047, value=int(st.session_state.BL), step=1)
         gain = st.slider("Gain:", min_value=256, max_value=2047, value=int(st.session_state.Gain), step=1)
         centerX = st.radio("Center X (T/F):", options=[True, False], index=0)
-        height = st.slider("Height (pixel):", min_value=1, max_value=3780, value=int(st.session_state.Height), step=1)
+        height = st.slider("Height (pixel):", min_value=100, max_value=10000, value=int(st.session_state.Height), step=100)
         width = st.slider("Width (pixel):", min_value=1, max_value=8192, value=int(st.session_state.Width), step=1)
         triggerDelay = st.slider("Camera Trigger Delay (s):", min_value=0.1, max_value=10.0, value=float(st.session_state.triggerDelay), step=0.1)
         imgThresholding = st.selectbox('Image Thresholding?', ('Yes', 'No'))

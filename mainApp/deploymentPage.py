@@ -124,7 +124,6 @@ def deployment():
                         camera.StartGrabbing(pylon.GrabStrategy_OneByOne)
                         i = 0
                         print('Starting to acquire')
-                        # t0 = time.time()
                         img = []
                         while camera.IsGrabbing():
                             grab = camera.RetrieveResult(2000, pylon.TimeoutHandling_ThrowException)

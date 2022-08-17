@@ -127,8 +127,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-resources/dataset/.gitattributes
-resources/dataset/cardDataset.zip
-resources/dataset/.gitattributes
-resources/dataset/.gitattributes
-resources/dataset/cardDataset.zip
+

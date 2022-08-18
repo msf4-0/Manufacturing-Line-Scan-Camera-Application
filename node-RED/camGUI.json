@@ -1,106 +1,16 @@
 [
     {
-        "id": "9b0c4947e1f8d1ea",
+        "id": "7b6d7e4cafd3b773",
         "type": "tab",
-        "label": "MQTT Time taken",
-        "disabled": true,
+        "label": "Camera GUI",
+        "disabled": false,
         "info": "",
         "env": []
     },
     {
-        "id": "4857a97a5b307e3b",
-        "type": "mqtt in",
-        "z": "9b0c4947e1f8d1ea",
-        "name": "",
-        "topic": "imgTest",
-        "qos": "2",
-        "datatype": "buffer",
-        "broker": "c0694f7a68065c3f",
-        "nl": false,
-        "rap": true,
-        "rh": 0,
-        "inputs": 0,
-        "x": 90,
-        "y": 140,
-        "wires": [
-            [
-                "ff511335c08adc72",
-                "6978c07314454c09",
-                "19658595ee0e9ab8"
-            ]
-        ]
-    },
-    {
-        "id": "ff511335c08adc72",
-        "type": "function",
-        "z": "9b0c4947e1f8d1ea",
-        "name": "",
-        "func": "timeH = new Date().getHours();\ntimeM = new Date().getMinutes();\ntimeS = new Date().getSeconds();\ntimeMs = new Date().getMilliseconds();\ncurrentTime = (timeH*60*60)+(timeM*60)+(timeS)+(timeMs/1000)\n\nstartTime = global.get('start');\n\ntimeElapsed = currentTime - startTime;\n\nmsg.payload = \"Time elapsed: \" + (timeElapsed*1000) + \" ms\";\n\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 280,
-        "y": 140,
-        "wires": [
-            [
-                "93dc5fde7db7708b"
-            ]
-        ]
-    },
-    {
-        "id": "93dc5fde7db7708b",
-        "type": "debug",
-        "z": "9b0c4947e1f8d1ea",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 450,
-        "y": 140,
-        "wires": []
-    },
-    {
-        "id": "6978c07314454c09",
-        "type": "image",
-        "z": "9b0c4947e1f8d1ea",
-        "name": "",
-        "width": 160,
-        "data": "payload",
-        "dataType": "msg",
-        "thumbnail": false,
-        "active": false,
-        "pass": false,
-        "outputs": 0,
-        "x": 620,
-        "y": 180,
-        "wires": []
-    },
-    {
-        "id": "19658595ee0e9ab8",
-        "type": "debug",
-        "z": "9b0c4947e1f8d1ea",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 290,
-        "y": 220,
-        "wires": []
-    },
-    {
-        "id": "651da2d214b7cda6",
+        "id": "89aa66afaea64384",
         "type": "aedes broker",
-        "z": "9b0c4947e1f8d1ea",
+        "z": "7b6d7e4cafd3b773",
         "name": "",
         "mqtt_port": 1883,
         "mqtt_ws_bind": "port",
@@ -113,73 +23,37 @@
         "dburl": "",
         "usetls": false,
         "x": 130,
-        "y": 300,
+        "y": 80,
         "wires": [
             [],
             []
         ]
     },
     {
-        "id": "c0f97b7636ad52fd",
+        "id": "1f575e29784b27a1",
         "type": "mqtt in",
-        "z": "9b0c4947e1f8d1ea",
+        "z": "7b6d7e4cafd3b773",
         "name": "",
-        "topic": "timeTest",
+        "topic": "sensorRead",
         "qos": "2",
         "datatype": "auto",
-        "broker": "c0694f7a68065c3f",
+        "broker": "ad097111d40b5465",
         "nl": false,
         "rap": true,
         "rh": 0,
         "inputs": 0,
-        "x": 100,
-        "y": 40,
+        "x": 110,
+        "y": 200,
         "wires": [
             [
-                "291ecb1d9149c991",
-                "c86ceca1592ec739"
+                "df9ae9a76dee10d1"
             ]
         ]
     },
     {
-        "id": "c01bde5f1a4caee6",
+        "id": "df9ae9a76dee10d1",
         "type": "debug",
-        "z": "9b0c4947e1f8d1ea",
-        "name": "",
-        "active": false,
-        "tosidebar": true,
-        "console": false,
-        "tostatus": false,
-        "complete": "false",
-        "statusVal": "",
-        "statusType": "auto",
-        "x": 450,
-        "y": 40,
-        "wires": []
-    },
-    {
-        "id": "291ecb1d9149c991",
-        "type": "function",
-        "z": "9b0c4947e1f8d1ea",
-        "name": "",
-        "func": "global.set('start', msg.payload);\nreturn msg;",
-        "outputs": 1,
-        "noerr": 0,
-        "initialize": "",
-        "finalize": "",
-        "libs": [],
-        "x": 280,
-        "y": 40,
-        "wires": [
-            [
-                "c01bde5f1a4caee6"
-            ]
-        ]
-    },
-    {
-        "id": "c86ceca1592ec739",
-        "type": "debug",
-        "z": "9b0c4947e1f8d1ea",
+        "z": "7b6d7e4cafd3b773",
         "name": "",
         "active": false,
         "tosidebar": true,
@@ -189,14 +63,418 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 290,
-        "y": 80,
+        "y": 200,
         "wires": []
     },
     {
-        "id": "c0694f7a68065c3f",
+        "id": "d559bff06875b8a5",
+        "type": "mqtt out",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "topic": "sensorRead",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "ad097111d40b5465",
+        "x": 270,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "354a927dd3f1eeba",
+        "type": "inject",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "true",
+        "payloadType": "bool",
+        "x": 110,
+        "y": 500,
+        "wires": [
+            [
+                "d559bff06875b8a5"
+            ]
+        ]
+    },
+    {
+        "id": "76e8f1c78f5800b2",
+        "type": "mqtt in",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "topic": "timeElapsed",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "ad097111d40b5465",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 110,
+        "y": 800,
+        "wires": [
+            [
+                "6b82e75cda227a95"
+            ]
+        ]
+    },
+    {
+        "id": "1dcc6d269eefc190",
+        "type": "debug",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "active": false,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 450,
+        "y": 800,
+        "wires": []
+    },
+    {
+        "id": "6b82e75cda227a95",
+        "type": "function",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "func": "timeH = new Date().getHours();\ntimeM = new Date().getMinutes();\ntimeS = new Date().getSeconds();\ntimeMs = new Date().getMilliseconds();\ncurrentTime = (timeH*60*60)+(timeM*60)+(timeS)+(timeMs/1000)\n\nglobal.set('start', msg.payload);\n\ntimeElapsed = currentTime - msg.payload;\n\nmsg.payload = \"Time elapsed: \" + timeElapsed + \" s\";\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 800,
+        "wires": [
+            [
+                "1dcc6d269eefc190"
+            ]
+        ]
+    },
+    {
+        "id": "d6620eb998a2b535",
+        "type": "mqtt in",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "topic": "cvsystem/main/results",
+        "qos": "2",
+        "datatype": "json",
+        "broker": "3010ea4435b1a8fe",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 360,
+        "wires": [
+            [
+                "cfcdd69289898980"
+            ]
+        ]
+    },
+    {
+        "id": "f7fa43feb0b2bd32",
+        "type": "debug",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 510,
+        "y": 360,
+        "wires": []
+    },
+    {
+        "id": "cfcdd69289898980",
+        "type": "function",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "func": "function isEmpty(obj) {\n    return Object.keys(obj).length === 0;\n}\n\nif (isEmpty(msg.payload)){\n    msg.payload = \"No writing detected\"\n}\nelse{\n    msg.payload = msg.payload[0].name\n}\n\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 340,
+        "y": 360,
+        "wires": [
+            [
+                "f7fa43feb0b2bd32"
+            ]
+        ]
+    },
+    {
+        "id": "c3dd96b0715a4e34",
+        "type": "mqtt out",
+        "z": "7b6d7e4cafd3b773",
+        "name": "to IVIS",
+        "topic": "cvsystem/main/recv_frame",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3010ea4435b1a8fe",
+        "x": 670,
+        "y": 620,
+        "wires": []
+    },
+    {
+        "id": "8a787934370d4bbc",
+        "type": "inject",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 620,
+        "wires": [
+            [
+                "b90603688c887b18"
+            ]
+        ]
+    },
+    {
+        "id": "b90603688c887b18",
+        "type": "file in",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "filename": "C:\\Users\\Suspicious\\IVIS\\images\\01.png",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 400,
+        "y": 620,
+        "wires": [
+            [
+                "c3dd96b0715a4e34"
+            ]
+        ]
+    },
+    {
+        "id": "8fabc392743bef19",
+        "type": "mqtt out",
+        "z": "7b6d7e4cafd3b773",
+        "name": "to IVIS",
+        "topic": "cvsystem/main/recv_frame",
+        "qos": "2",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "3010ea4435b1a8fe",
+        "x": 670,
+        "y": 680,
+        "wires": []
+    },
+    {
+        "id": "4f9598bf9594ef6e",
+        "type": "inject",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 120,
+        "y": 680,
+        "wires": [
+            [
+                "fa5ded1b50e8e31a"
+            ]
+        ]
+    },
+    {
+        "id": "fa5ded1b50e8e31a",
+        "type": "file in",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "filename": "C:\\Users\\Suspicious\\IVIS\\images\\111.png",
+        "format": "",
+        "chunk": false,
+        "sendError": false,
+        "encoding": "none",
+        "allProps": false,
+        "x": 400,
+        "y": 680,
+        "wires": [
+            [
+                "8fabc392743bef19"
+            ]
+        ]
+    },
+    {
+        "id": "70cb06eb3f5d1801",
+        "type": "function",
+        "z": "7b6d7e4cafd3b773",
+        "name": "",
+        "func": "currentTime = new Date().getTime();\nglobal.set('startTime', currentTime);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "// Code added here will be run once\n// whenever the node is started.\ncurrentTime = new Date().getTime();\nglobal.set('startTime',currentTime);",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 240,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "d8921dc4953a5e3e",
+        "type": "comment",
+        "z": "7b6d7e4cafd3b773",
+        "name": "MQTT Broker",
+        "info": "",
+        "x": 110,
+        "y": 40,
+        "wires": []
+    },
+    {
+        "id": "8fb93d26d4ae5e48",
+        "type": "comment",
+        "z": "7b6d7e4cafd3b773",
+        "name": "Receive Sensor Output",
+        "info": "Subscribe to \"sensorRead\" topic",
+        "x": 140,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "3e8ed20501fea5be",
+        "type": "comment",
+        "z": "7b6d7e4cafd3b773",
+        "name": "To measure the time taken",
+        "info": "",
+        "x": 490,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "c541ca19eec9b2dc",
+        "type": "comment",
+        "z": "7b6d7e4cafd3b773",
+        "name": "Sensor Output Simulation",
+        "info": "",
+        "x": 150,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "d2b88f2255ea926a",
+        "type": "comment",
+        "z": "7b6d7e4cafd3b773",
+        "name": "IVIS Prediction Result",
+        "info": "",
+        "x": 140,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "3a85c83bf4570e2f",
+        "type": "comment",
+        "z": "7b6d7e4cafd3b773",
+        "name": "IVIS Input Image Test",
+        "info": "",
+        "x": 140,
+        "y": 580,
+        "wires": []
+    },
+    {
+        "id": "c9795970c360e035",
+        "type": "comment",
+        "z": "7b6d7e4cafd3b773",
+        "name": "Time Elapsed ",
+        "info": "",
+        "x": 110,
+        "y": 760,
+        "wires": []
+    },
+    {
+        "id": "ad097111d40b5465",
         "type": "mqtt-broker",
-        "name": "Latency Test",
+        "name": "Sensor",
         "broker": "192.168.0.129",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "3010ea4435b1a8fe",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "localhost",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
